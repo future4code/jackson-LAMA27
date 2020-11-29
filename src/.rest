@@ -1,0 +1,23 @@
+@userHost = http://localhost:3003/user
+
+
+### User Signup
+POST {{userHost}}/signup
+Content-Type: application/json
+
+{
+    "name": "Raphael",
+    "email": "raphael@email.com",
+    "password": "labenu123",
+    "role": "ADMIN"
+}
+
+
+### User Login
+POST {{userHost}}/login
+Content-Type: application/json
+
+{
+    "email": "raphael@email.com",
+    "password": "labenu123"
+}
