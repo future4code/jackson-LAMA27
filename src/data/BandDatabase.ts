@@ -25,6 +25,29 @@ export class BandDatabase extends BaseDatabase {
     }
 
 
+    public async getBandById (id: string) {
+        try {
+            const result = await this.getConnection()
+                .select("*")
+                .from(BandDatabase.TABLE_NAME)
+                .where({ id })
+            return result[0]
+        } catch (error) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+    public async getBandByName (name: string) {
+        try {
+            const result = await this.getConnection()
+                .select("*")
+                .from(BandDatabase.TABLE_NAME)
+                .where({ name })
+            return result[0]
+        } catch (error) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
 
 }
 

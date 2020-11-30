@@ -28,5 +28,23 @@ export class BandBusiness {
             throw new Error(error.message || error.sqlMessage)
         }
     }
+
+    async getBand(data: any) {
+        try {
+            const {id, name} = data
+            const bandDatabase = new BandDatabase()
+            if (id) {
+                const result = await bandDatabase.getBandById(id)
+                return result
+            } else if (name) {
+                const result = await bandDatabase.getBandByName(name)
+                return result
+            } else {
+                throw new Error(`Band ID or name is required`)
+            }
+        } catch (error) {
+            throw new Error(error.message || error.sqlMessage)
+        }
+    }
 }
 

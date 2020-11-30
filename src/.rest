@@ -44,7 +44,25 @@ Authorization: {{raphaelToken}}
 Content-Type: application/json
 
 {
-    "name": "Devs",
-    "music_genre": "eletronic",
-    "responsible": "Raphael"
+    "name": "Anothers",
+    "music_genre": "country",
+    "responsible": "Jhonas"
 }
+
+
+### Band Search (by id)
+GET {{bandHost}}/search
+Content-Type: application/json
+
+{
+    "id": "aaff9d73-1874-4009-b2d3-1f9fb3b3dd3b"
+}
+
+### Band Search (by name)
+GET {{bandHost}}/search
+Content-Type: application/json
+
+{
+    "name": "Anothers"
+}
+

@@ -22,4 +22,17 @@ export class BandController {
             res.status(400).send({ error: error.message })
         }
     }
+
+    async getBand(req: Request, res: Response) {
+        try {
+            const data = {id: req.body.id, name: req.body.name}
+            
+            const bandBusiness = new BandBusiness()
+            const result = await bandBusiness.getBand(data)
+
+            res.status(200).send(result)
+        } catch (error) {
+            res.status(400).send({error: error.message})
+        }
+    }
 }
