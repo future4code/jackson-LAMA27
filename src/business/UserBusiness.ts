@@ -7,7 +7,6 @@ import { Authenticator } from "../services/Authenticator";
 export class UserBusiness {
 
     async createUser(user: UserInputDTO) {
-
         const idGenerator = new IdGenerator();
         const id = idGenerator.generate();
 
