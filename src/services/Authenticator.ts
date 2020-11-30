@@ -22,7 +22,7 @@ export class Authenticator {
       id: payload.id,
       role: payload.role
     };
-    console.log(`[Authenticator]: [getData]: result =`, result)
+
     return result;
   }
 }
