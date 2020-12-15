@@ -1,0 +1,68 @@
+@userHost = http://localhost:3003/user
+@bandHost = http://localhost:3003/band
+@raphaelToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ5MWE2OTNhLTJmZDEtNDg1Yi05YTZlLTcxYTllNWQ2MDIxYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYwNjcwMTc2NSwiZXhwIjoxNjA2Nzg4MTY1fQ.-fde6dEHCmAzl-Aa4LmVWjfPvvClq54ww47iRvn6fV4
+
+
+### User Signup (ADMIN)
+POST {{userHost}}/signup
+Content-Type: application/json
+
+{
+    "name": "Rodrigo",
+    "email": "rodrigo@email.com",
+    "password": "labenu123",
+    "role": "ADMIN"
+}
+
+
+### User Signup (NORMAL)
+POST {{userHost}}/signup
+Content-Type: application/json
+
+{
+    "name": "Fernanda",
+    "email": "fernanda@email.com",
+    "password": "labenu123",
+    "role": "NORMAL"
+}
+
+
+
+### User Login
+POST {{userHost}}/login
+Content-Type: application/json
+
+{
+    "email": "raphael@email.com",
+    "password": "labenu123"
+}
+
+
+### Band Signup
+POST {{bandHost}}/signup
+Authorization: {{raphaelToken}}
+Content-Type: application/json
+
+{
+    "name": "Anothers",
+    "music_genre": "country",
+    "responsible": "Jhonas"
+}
+
+
+### Band Search (by id)
+GET {{bandHost}}/search
+Content-Type: application/json
+
+{
+    "id": "aaff9d73-1874-4009-b2d3-1f9fb3b3dd3b"
+}
+
+### Band Search (by name)
+GET {{bandHost}}/search
+Content-Type: application/json
+
+{
+    "name": "Anothers"
+}
+
